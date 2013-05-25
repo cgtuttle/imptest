@@ -1,5 +1,5 @@
 Imptest::Application.routes.draw do
 
-  root :to => 'main'
+  root :to => 'pages#main'
   
 end
