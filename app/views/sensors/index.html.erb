@@ -1,0 +1,14 @@
+<h2>Current Readings</h2>
+
+	<%= @samples.each do |s| %>
+		<table>
+			<thead>
+				<th>Sensor Channel</th>
+				<th>Reading</th>
+			</thead>
+			<tbody>
+				<td>s.sensor_id</td>
+				<td>s.value</td>
+			</tbody>
+		</table>
+	<% end %>
