@@ -2,11 +2,13 @@ class SensorsController < ApplicationController
 
 	def push
 		@value = params[:value]
-		@channel = params[:channel]
-		@sample = Sample.new
-		@sample.value = @value
-		@sample.sensor_id = @channel
-		@sample.save
+		if @value > 0
+			@channel = params[:channel]
+			@sample = Sample.new
+			@sample.value = @value
+			@sample.sensor_id = @channel
+			@sample.save
+		end
 	end
 
 	def index
