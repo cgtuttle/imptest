@@ -9,7 +9,7 @@
 		<% @samples.each do |s| %>
 			<tbody>
 				<td><%= s.sensor_id %></td>
-				<td><%= s.value %></td>
+				<td><%= number_to_percentage(s.value * 100, :precision => 0) if s.value %></td>
 			</tbody>
 		<% end %>
 	</table>
