@@ -10,14 +10,18 @@ class SensorsController < ApplicationController
 	end
 
 	def push
-		@value = params[:value]
-		if !(!@value || @value == 0)
-			@channel = params[:channel]
+		@value = Sample.new
+
+		@value = params[:value].parsed
+		@channel = params[:channel]
+		
+		if(@value[0] == "Avg")
 			@sample = Sample.new
-			@sample.value = @value
+			@sample.value = @value[1]
 			@sample.sensor_id = @channel
 			@sample.save
 		end
+		
 		while Sample.count > 25
 			Sample.first.delete
 		end
