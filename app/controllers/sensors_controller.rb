@@ -1,5 +1,14 @@
 class SensorsController < ApplicationController
 
+	def new
+		@sample = Sample.new
+	end
+
+	def create
+		@sample = Sample.new(params[:sample])
+		@sample.save
+	end
+
 	def push
 		@value = params[:value]
 		if !(!@value || @value == 0)
