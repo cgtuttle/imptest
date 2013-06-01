@@ -10,9 +10,7 @@ class SensorsController < ApplicationController
 	end
 
 	def push
-		@value = Sample.new
-
-		@value = params[:value].parsed
+		@value = params[:value].split(':')
 		@channel = params[:channel]
 		
 		if(@value[0] == "Avg")
