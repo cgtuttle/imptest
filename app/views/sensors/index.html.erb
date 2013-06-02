@@ -6,6 +6,7 @@
 	<thead>
 		<th style="width: 10em">Sensor Channel</th>
 		<th style="width: 10em">Reading</th>
+		<th style="width: 15em">Timestamp (UTC)</th>
 		<th style="width: 15em">Timestamp</th>
 		<th></th>
 	</thead>
@@ -14,6 +15,7 @@
 			<% if s.sensor_id %>
 				<td><%= s.sensor_id %></td>
 				<td><%= number_to_percentage(s.value * 100, :precision => 0) if s.value %></td>
+				<td><%= s.created_at %></td>
 				<td><%= s.created_at.localtime %></td>
 				<td></td>
 			<% end %>

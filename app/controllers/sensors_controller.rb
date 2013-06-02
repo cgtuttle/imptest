@@ -21,7 +21,7 @@ class SensorsController < ApplicationController
 		end
 		
 		while Sample.count > 25
-			Sample.first.delete
+			Sample.order("created_at").first.delete
 		end
 		render :nothing => true
 	end
