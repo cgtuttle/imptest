@@ -27,7 +27,7 @@ class SensorsController < ApplicationController
 	end
 
 	def index
-		@samples = Sample.order("created_at")
+		@samples = Sample.order("created_at DESC")
 	end
 
 end
