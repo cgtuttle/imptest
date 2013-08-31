@@ -20,7 +20,7 @@ class SensorsController < ApplicationController
 			@sample.save
 		end
 		
-		while Sample.count > 25
+		while Sample.count > 7500
 			Sample.order("created_at").first.delete
 		end
 		render :nothing => true
