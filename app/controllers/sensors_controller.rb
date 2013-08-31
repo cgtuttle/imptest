@@ -27,7 +27,8 @@ class SensorsController < ApplicationController
 	end
 
 	def index
-		@samples = Sample.order("created_at DESC")
+		@samples = Sample.order("created_at DESC").limit(25)
+		@chart_samples = Sample.order("created_at DESC")
 	end
 
 end
